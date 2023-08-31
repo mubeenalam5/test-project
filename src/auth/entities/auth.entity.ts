@@ -24,9 +24,9 @@ export class User {
         this.email = this.email.toLowerCase();
     }
 
-    @BeforeInsert()
-    @BeforeUpdate()
-    async hashPassword(): Promise<void> {
-        this.password = await Crypt.hashString(this.password);
-    }
+    @OneToMany(()=> Follower, (f) => f.followedUser)
+    followers: Follower[];
+    
+    @OneToMany(()=> Follower, (f) => f.followerUser)
+    followed: Follower[];
 }

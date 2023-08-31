@@ -8,16 +8,16 @@ export class Follower {
     id: number;
 
     @Column()
-    followed_id: number;
-
-    @Column()
     follower_id: number;
 
-    @ManyToOne(()=> User)
-    @JoinColumn({name: 'followed_id'})
-    followed: User;
-    
+    @Column()
+    followed_id: number;
+
     @ManyToOne(()=> User)
     @JoinColumn({name: 'follower_id'})
-    follower: User;
+    followerUser: User;
+    
+    @ManyToOne(()=> User)
+    @JoinColumn({name: 'followed_id'})
+    followedUser: User;
 }

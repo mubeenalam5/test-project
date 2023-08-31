@@ -2,6 +2,9 @@ export const messages = {
     sign_up: 'Resgistered Successfully',
     sign_in: 'Signed In Successfully',
     already_exist: 'Already Exist',
-    invalid_credentials: 'Invalid Credentials'
+    invalid_credentials: 'Invalid Credentials',
+    followed: 'Followed Successfully',
+    get: 'Get Successfully',
+    created: 'Created Successfully '
   };
   

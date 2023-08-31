@@ -1,6 +1,8 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import * as dotenv from 'dotenv';
 import { User } from 'src/auth/entities/auth.entity';
+import { Follower } from 'src/auth/entities/follower.entity';
+import { Post } from 'src/post/entities/post.entity';
 
 dotenv.config();
 
@@ -23,7 +25,9 @@ export const orm_config: TypeOrmModuleOptions = {
   database: dbConfig.name,
   entities: [
     User,
+    Follower,
+    Post
   ],
   synchronize: false,
-  // logging:true
+  logging: true
 };
