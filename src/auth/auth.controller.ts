@@ -14,6 +14,7 @@ import { Role } from './role.enum';
 export class AuthController {
   constructor(private readonly authService: AuthService) { }
 
+  @ApiTags(Role.Admin)
   @UseInterceptors(TransformInterceptor)
   @Post('admin-signup')
   adminSignUp(@Body() adminSignUpDto: AdminSignUpDto) {
