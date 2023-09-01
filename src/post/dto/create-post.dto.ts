@@ -16,10 +16,10 @@ export class CreatePostDto {
     @IsEnum(Category)
     category: string;
 
-    // manualy set using multer file parameter and id from user_token
-    file_name: string;
+    @ApiProperty({ type: 'string', format: 'binary' })
+    file: any;
 
-    data: Uint8Array;
+    image_url: string;
 
     created_by: number;
 }

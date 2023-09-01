@@ -1,5 +1,6 @@
 import { User } from "src/auth/entities/auth.entity";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn, OneToMany } from "typeorm";
+import { Comment } from "./comment.entity";
 
 @Entity()
 export class Post {
@@ -16,12 +17,7 @@ export class Post {
     category: string;
 
     @Column()
-    file_name: string;
-
-    @Column({
-        type: 'bytea',
-    })
-    data: Uint8Array;
+    image_url: string;
 
     @Column()
     created_by: number;
@@ -29,4 +25,7 @@ export class Post {
     @ManyToOne(() => User)
     @JoinColumn({ name: 'created_by' })
     created_by_user: User;
+
+    @OneToMany(() => Comment, comment => comment.post)
+    comments: Comment[];
 }
