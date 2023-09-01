@@ -131,9 +131,6 @@ export class AuthService {
 
       const userRepo = getRepository(User);
       const query = userRepo.createQueryBuilder('u')
-        // .leftJoin('u.followers', 'followers')
-        // .leftJoin('u.followers', 'followers')
-        // .leftJoin('u.followed', 'followed')
         .select([
           'u.id',
           'u.name',
